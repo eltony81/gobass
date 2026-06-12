@@ -139,3 +139,30 @@ x|4|16   # Slap a muted ghost note on the E string
     ./gobass -bpm 100 -file tab.txt -port "Synth" -transpose 24
     ```
 *   **Headphones/Speakers:** For the best, warm bass sound, plug in headphones or external monitor speakers and play at natural tuning (`-transpose 0`).
+
+---
+
+## 6. How it Works (Precise Timing)
+
+To avoid timing drift caused by Go's Garbage Collection and OS scheduler delays, `gobass` implements a **Look-Ahead Scheduler**:
+
+1. **Absolute Timestamps**: Every note's trigger time is calculated relative to the start time ($T_0$), preventing cumulative delays.
+2. **Look-Ahead Window (25ms)**: A ticker wakes up every 5ms and checks for events scheduled in the next 25ms.
+3. **Precise Dispatch (`time.AfterFunc`)**: If a note is due in $N$ milliseconds, a high-precision timer is scheduled to fire exactly when needed, bypassing ticker quantization.
+
+```mermaid
+sequenceDiagram
+    participant Ticker as Ticker (Every 5ms)
+    participant Queue as Event Queue
+    participant Scheduler as Go Runtime (AfterFunc)
+    participant Synth as FluidSynth (MIDI)
+
+    Note over Ticker: Elapsed time = 100ms
+    Ticker->>Queue: Look ahead up to 125ms
+    Queue-->>Ticker: Found event at 112ms
+    Note over Ticker: Delay = 112ms - 100ms = 12ms
+    Ticker->>Scheduler: Sched(12ms)
+    opt Exactly at 112ms
+        Scheduler->>Synth: Send NoteOn / NoteOff
+    end
+```
