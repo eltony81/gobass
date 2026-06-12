@@ -1,0 +1,27 @@
+# Slap Bass Groove (Slap & Pop)
+# Best with: ./gobass -bpm 95 -file groove_slap.txt -program 36
+# String 4 = E (28), String 3 = A (33), String 2 = D (38), String 1 = G (43)
+
+# Bar 1: E slap and popping octaves
+0|4|8
+x|4|16
+2|2|16
+x|4|8
+2|2|8
+0|3|8
+x|3|16
+2|1|16
+x|3|8
+2|1|8
+
+# Bar 2
+0|4|8
+x|4|16
+2|2|16
+x|4|8
+2|2|8
+3|4|8
+x|4|16
+5|2|16
+5|3|8
+7|2|8

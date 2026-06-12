@@ -1,0 +1,29 @@
+# Funk Bassline (16th note feel)
+# BPM: 90-100
+# String 4 = E (28), String 3 = A (33), String 2 = D (38), String 1 = G (43)
+# 'p' is a Rest/Pausa (advances time without playing any sound)
+
+# Bar 1: E Minor Funk riff with rests
+0|4|8
+p|0|16
+0|4|16
+0|3|8
+2|3|16
+p|0|16
+0|2|8
+2|2|8
+x|2|16
+p|0|16
+2|2|8
+
+# Bar 2: Repeat with a slight variation and rests
+0|4|8
+p|0|16
+0|4|16
+0|3|8
+2|3|16
+p|0|16
+0|2|8
+2|2|8
+3|1|8
+2|1|8

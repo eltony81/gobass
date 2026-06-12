@@ -1,0 +1,26 @@
+# Sample Bass Line (100 BPM Walking Bass / Groove)
+# Format: Fret|String|Subdivision
+# String 4 = E (28), String 3 = A (33), String 2 = D (38), String 1 = G (43)
+
+# Bar 1: Walking E -> G# -> A -> B
+0|4|4
+4|4|4
+0|3|4
+2|3|4
+
+# Bar 2: C -> A -> D -> E
+3|3|4
+0|3|4
+0|2|4
+2|2|4
+
+# Bar 3: Play some eighth notes and a ghost note
+0|4|8
+x|4|8
+4|4|8
+0|3|8
+3|3|4
+2|3|4
+
+# Bar 4: Final note sustained as a whole note (subdivision = 1)
+0|4|1

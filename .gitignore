@@ -1,0 +1,12 @@
+# Binaries and executables
+gobass
+gobass.exe
+
+# Local dependencies/toolchains if any
+local_go/
+local_gopath/
+
+# Large SoundFont files and temp logs/wavs
+*.sf2
+*.log
+*.wav
