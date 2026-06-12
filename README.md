@@ -15,30 +15,35 @@ To compile and run `gobass`, you need:
 
 ## 1. Quick Installation & Setup
 
-### 🐧 Linux (Manjaro / Arch / Ubuntu)
+### 🐧 Linux Installation
 
-#### Step 1: Install Go, FluidSynth, and SoundFont
-Open a terminal and run the command for your distribution:
+#### 1. Manjaro Linux (Arch-based)
+Install the Go compiler, FluidSynth, and the FluidR3 SoundFont using `pacman`:
+```bash
+sudo pacman -S go fluidsynth soundfont-fluid
+```
+*Note: The SoundFont is installed at `/usr/share/soundfonts/FluidR3_GM.sf2`.*
 
-*   **Manjaro / Arch Linux:**
-    ```bash
-    sudo pacman -S go fluidsynth soundfont-fluid
-    ```
-    *(This automatically places the FluidR3_GM.sf2 SoundFont in `/usr/share/soundfonts/FluidR3_GM.sf2`)*
-
-*   **Ubuntu / Debian / Mint:**
-    ```bash
-    sudo apt update
-    sudo apt install golang fluidsynth fluid-soundfont-gm
-    ```
-    *(This places the SoundFont in `/usr/share/sounds/sf2/FluidR3_GM.sf2`)*
+#### 2. Debian / Ubuntu / Mint
+Install the Go compiler, FluidSynth, and the Fluid General MIDI SoundFont using `apt`:
+```bash
+sudo apt update
+sudo apt install golang fluidsynth fluid-soundfont-gm
+```
+*Note: The SoundFont is installed at `/usr/share/sounds/sf2/FluidR3_GM.sf2`.*
 
 #### Step 2: Start FluidSynth in the Background
-Start FluidSynth as a MIDI server using the PipeWire audio engine:
-```bash
-fluidsynth -g 1.5 -a pipewire -m alsa_seq -s -i /usr/share/soundfonts/FluidR3_GM.sf2 &
-```
-*(If your system uses PulseAudio or ALSA, substitute `-a pipewire` with `-a pulseaudio` or `-a alsa`)*
+Start FluidSynth as a MIDI server. Select the command depending on your distribution's SoundFont path:
+
+*   **For Manjaro:**
+    ```bash
+    fluidsynth -g 1.5 -a pipewire -m alsa_seq -s -i /usr/share/soundfonts/FluidR3_GM.sf2 &
+    ```
+*   **For Debian / Ubuntu:**
+    ```bash
+    fluidsynth -g 1.5 -a pipewire -m alsa_seq -s -i /usr/share/sounds/sf2/FluidR3_GM.sf2 &
+    ```
+*(If your system does not use PipeWire, you can substitute `-a pipewire` with `-a pulseaudio` or `-a alsa`)*
 
 ---
 
