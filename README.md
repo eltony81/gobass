@@ -1,6 +1,8 @@
 # Go Bass Sequencer (gobass)
 
-A precise, real-time look-ahead MIDI sequencer written in Go. It parses custom text-based tablature files and routes them to FluidSynth to play bass guitar lines without cumulative timing drift.
+[![GitHub Repository](https://img.shields.io/badge/GitHub-eltony81%2Fgobass-blue?logo=github)](https://github.com/eltony81/gobass)
+
+A precise, real-time look-ahead MIDI sequencer written in Go by [eltony81](https://github.com/eltony81). It parses custom text-based tablature files and routes them to FluidSynth to play bass guitar lines without cumulative timing drift.
 
 ---
 
